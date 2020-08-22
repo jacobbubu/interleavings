@@ -45,7 +45,7 @@ describe('pull', () => {
           expect(even).toEqual([2, 4, 6, 8])
           expect(odd).toEqual([1, 3, 5, 7])
 
-          async.done(null)
+          async.done()
         })
       )
     }

@@ -134,7 +134,7 @@ export class Async {
     }
   }
 
-  done(err: AsyncError | null, value?: any) {
+  done(err: AsyncError | null = null, value?: any) {
     if (this._ended) return
     this._ended = true
 
