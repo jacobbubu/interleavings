@@ -1,5 +1,6 @@
 import * as path from 'path'
 import { RNG } from '@jacobbubu/rngmt'
+import * as pull from '@jacobbubu/pull-stream'
 import { debug } from './logger'
 
 process.setMaxListeners(Infinity)
@@ -162,6 +163,15 @@ export class Async {
       throw err
     } else {
       debug(this._result)
+    }
+  }
+
+  through(name: string = 'Error') {
+    const self = this
+    return function <T>(read: pull.Source<T>): pull.Source<T> {
+      return function (abort, cb) {
+        self.wrap(read, name + ':read')(abort, self.wrap(cb, name + ':cb'))
+      }
     }
   }
 }
