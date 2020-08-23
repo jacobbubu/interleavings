@@ -60,9 +60,9 @@
     "coverageThreshold": {
       "global": {
         "branches": 65,
-        "functions": 85,
+        "functions": 75,
         "lines": 82,
-        "statements": 85
+        "statements": 80
       }
     },
     "collectCoverage": true
